@@ -18,3 +18,8 @@ include: "/views/*.view.lkml"                # include all views in the views/ f
 #     sql_on: ${users.id} = ${orders.user_id} ;;
 #   }
 # }
+
+explore: agg_cloudflare_server_logs {}
+explore: agg_big_commerce_transactions {}
+explore: agg_paid_media {}
+explore: agg_segment_transactions {}
