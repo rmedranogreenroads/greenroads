@@ -38,6 +38,7 @@ view: agg_cloudflare_server_logs {
       quarter,
       year
     ]
+    datatype: date
     sql: ${TABLE}.CF_END_TIMESTAMP ;;
   }
 
@@ -87,6 +88,7 @@ view: agg_cloudflare_server_logs {
       quarter,
       year
     ]
+    datatype: date
     sql: ${TABLE}.CF_START_TIMESTAMP ;;
   }
 
