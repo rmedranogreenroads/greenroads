@@ -8,12 +8,12 @@ view: agg_big_commerce {
   }
 
   dimension: bc_coupon_discount {
-    type: number
+    type: string
     sql: ${TABLE}.BC_COUPON_DISCOUNT ;;
   }
 
   dimension: bc_coupon_id {
-    type: number
+    type: string
     sql: ${TABLE}.BC_COUPON_ID ;;
   }
 
