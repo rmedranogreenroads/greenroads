@@ -19,14 +19,7 @@ include: "/views/*.view.lkml"                # include all views in the views/ f
 #   }
 # }
 
-explore: agg_cloudflare_server_logs {
-  join: agg_big_commerce_transactions {
-    type: left_outer
-    relationship: one_to_one
-    sql_on: ${agg_big_commerce_transactions.bc_created_timestamp_time} = ${agg_cloudflare_server_logs.cf_start_timestamp_time}
-    ;;
-  }
-}
+explore: agg_cloudflare_server_logs {}
 explore: agg_big_commerce_transactions {}
 explore: agg_paid_media {}
 explore: agg_segment_transactions {}
