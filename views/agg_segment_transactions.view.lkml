@@ -63,6 +63,7 @@ view: agg_segment_transactions {
       quarter,
       year
     ]
+    datatype: date
     sql: ${TABLE}.SG_OG_TIMESTAMP ;;
   }
 
@@ -107,6 +108,7 @@ view: agg_segment_transactions {
       quarter,
       year
     ]
+    datatype: date
     sql: ${TABLE}.SG_UUID_TS ;;
   }
 
