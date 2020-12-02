@@ -18,6 +18,7 @@ view: agg_big_commerce_transactions {
       quarter,
       year
     ]
+    datatype: date
     sql: ${TABLE}.BC_CREATED_TIMESTAMP ;;
   }
 
