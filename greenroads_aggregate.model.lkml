@@ -21,5 +21,21 @@ include: "/views/*.view.lkml"                # include all views in the views/ f
 
 explore: agg_cloudflare_server_logs {}
 explore: agg_big_commerce_transactions {}
-explore: agg_paid_media {}
 explore: agg_segment_transactions {}
+
+
+
+explore: agg_big_commerce {
+  label: "Big Commerce v2"
+}
+explore: agg_cloudflare {
+  label: "CloudFlare v2"
+}
+
+explore:agg_segment  {
+  label: "Segment v2"
+}
+
+explore: agg_paid_media {
+  label: "Paid Media v2"
+}
