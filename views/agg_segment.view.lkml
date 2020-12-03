@@ -133,6 +133,8 @@ dimension: brand {
       quarter,
       year
     ]
+    convert_tz: no
+    datatype: date
     sql: ${TABLE}.SG_OG_TIMESTAMP ;;
   }
 
@@ -177,6 +179,8 @@ dimension: brand {
       quarter,
       year
     ]
+    convert_tz: no
+    datatype: date
     sql: ${TABLE}.SG_UUID_TS ;;
   }
 
