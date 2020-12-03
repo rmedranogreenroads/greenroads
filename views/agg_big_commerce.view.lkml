@@ -28,6 +28,7 @@ view: agg_big_commerce {
       quarter,
       year
     ]
+    datatype: date
     sql: ${TABLE}.BC_CREATED_TIMESTAMP ;;
   }
 
@@ -76,13 +77,13 @@ view: agg_big_commerce {
     sql: ${TABLE}.BC_STATUS ;;
   }
 
-  dimension: bc_total_including_tax {
-    type: number
+  measure: bc_total_including_tax {
+    type: sum
     sql: ${TABLE}.BC_TOTAL_INCLUDING_TAX ;;
   }
 
-  dimension: bc_total_items {
-    type: number
+  measure: bc_total_items {
+    type: sum
     sql: ${TABLE}.BC_TOTAL_ITEMS ;;
   }
 
