@@ -5,14 +5,17 @@ view: agg_segment {
 
 #########Logical Reconstructions ##########
 
-
-
 measure: transactions {
   type: count_distinct
   sql: case when  ${TABLE}.SG_EVENT like 'checkout_step_completed' then ${TABLE}.SG_CHECKOUT_ID end ;;
   drill_fields: [sg_campaign_medium,sg_campaign_source,sg_context_page_referrer, sg_user_id, sg_affiliation, sg_page_title, sg_page_path, sg_context_page_search]
 }
 
+
+dimension: brand {
+  type: string
+  sql: case when ${TABLE}.SG_CONTEXT_PAGE_REFERRER like 'greenroads-hemp.com' then 'hemp' else 'cbd' end   ;;
+}
 ##################################
   dimension: sg_affiliation {
     type: string
