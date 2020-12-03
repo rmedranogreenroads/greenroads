@@ -9,7 +9,8 @@ view: agg_segment {
 
 measure: transactions {
   type: count_distinct
-  sql: case when  ${TABLE}.SG_EVENT like 'checkout_step_completed' then ${TABLE}.SG_CHECKOUT_ID end ;;
+  sql: case when  ${TABLE}.SG_EVENT like 'checkout_step_completed' then ${TABLE}.SG_CHECKOUT_ID end
+  ;;
 }
 
 ##################################
