@@ -28,6 +28,7 @@ view: agg_big_commerce {
       quarter,
       year
     ]
+    convert_tz: no
     datatype: date
     sql: ${TABLE}.BC_CREATED_TIMESTAMP ;;
   }
