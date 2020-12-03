@@ -38,6 +38,7 @@ view: agg_cloudflare {
       quarter,
       year
     ]
+    convert_tz: no
     datatype: date
     sql: ${TABLE}.CF_END_TIMESTAMP ;;
   }
@@ -88,6 +89,7 @@ view: agg_cloudflare {
       quarter,
       year
     ]
+    convert_tz: no
     datatype: date
     sql: ${TABLE}.CF_START_TIMESTAMP ;;
   }
