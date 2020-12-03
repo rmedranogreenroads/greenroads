@@ -38,6 +38,7 @@ view: agg_cloudflare {
       quarter,
       year
     ]
+    datatype: date
     sql: ${TABLE}.CF_END_TIMESTAMP ;;
   }
 
@@ -66,8 +67,8 @@ view: agg_cloudflare {
     sql: ${TABLE}.CF_REQUEST_HOST ;;
   }
 
-  dimension: cf_response_bytes {
-    type: number
+  measure: cf_response_bytes {
+    type: sum
     sql: ${TABLE}.CF_RESPONSE_BYTES ;;
   }
 
@@ -87,6 +88,7 @@ view: agg_cloudflare {
       quarter,
       year
     ]
+    datatype: date
     sql: ${TABLE}.CF_START_TIMESTAMP ;;
   }
 
