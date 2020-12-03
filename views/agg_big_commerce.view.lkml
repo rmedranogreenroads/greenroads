@@ -2,6 +2,20 @@ view: agg_big_commerce {
   sql_table_name: `green-roads-285616.reporting_prod.agg_big_commerce`
     ;;
 
+#########Logical Reconstructions ##########
+  measure: transaction_total{
+    type: sum
+    sql: ${bc_total_including_tax} ;;
+    drill_fields: [bc_source, bc_status, bc_total_items, bc_items_shipped, bc_coupon_discount, bc_coupon_id, bc_brand]
+  }
+
+  measure: total_items {
+    type: sum
+    sql: ${bc_total_items} ;;
+    drill_fields: [bc_source, bc_status, bc_total_items, bc_items_shipped, bc_coupon_discount, bc_coupon_id, bc_brand]
+  }
+
+##################################
   dimension: bc_brand {
     type: string
     sql: ${TABLE}.BC_BRAND ;;
@@ -78,15 +92,16 @@ view: agg_big_commerce {
     sql: ${TABLE}.BC_STATUS ;;
   }
 
-  measure: bc_total_including_tax {
-    type: sum
+  dimension: bc_total_including_tax {
+    type: number
     sql: ${TABLE}.BC_TOTAL_INCLUDING_TAX ;;
   }
 
-  measure: bc_total_items {
-    type: sum
+  dimension: bc_total_items {
+    type: number
     sql: ${TABLE}.BC_TOTAL_ITEMS ;;
   }
+
 
   measure: count {
     type: count
