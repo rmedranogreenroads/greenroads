@@ -2,6 +2,17 @@ view: agg_segment {
   sql_table_name: `green-roads-285616.reporting_prod.agg_segment`
     ;;
 
+
+#########Logical Reconstructions ##########
+
+
+
+measure: transactions {
+  type: count_distinct
+  sql: case when  ${TABLE}.SG_EVENT like 'checkout_step_completed' then ${TABLE}.SG_CHECKOUT_ID end ;;
+}
+
+##################################
   dimension: sg_affiliation {
     type: string
     sql: ${TABLE}.SG_AFFILIATION ;;
