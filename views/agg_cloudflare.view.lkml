@@ -8,11 +8,18 @@ view: agg_cloudflare {
 measure: cf_transactions_distinct {
   type: count_distinct
   sql: case when ${TABLE}.CF_PURCHASE like 'true' then ${TABLE}.CF_URI end  ;;
+  drill_fields: [cf_brand, cf_client_ip, cf_protocol, cf_purchase, cf_ray_id, cf_request_host, cf_referer, cf_response_status, cf_uri, cf_user_agent]
 }
 
 dimension: cf_transaction_id {
   type: string
   sql: select right (${TABLE}.CF_URI, charindex('=', reverse(${TABLE}.CF_URI))-1) end  ;;
+}
+
+measure: response_bytes {
+  type: sum
+  sql: ${cf_response_bytes} ;;
+  drill_fields: [cf_brand, cf_client_ip, cf_protocol, cf_purchase, cf_ray_id, cf_request_host, cf_referer, cf_response_status, cf_uri, cf_user_agent]
 }
 
 #########################################################
@@ -82,8 +89,8 @@ dimension: cf_transaction_id {
     sql: ${TABLE}.CF_REQUEST_HOST ;;
   }
 
-  measure: cf_response_bytes {
-    type: sum
+  dimension: cf_response_bytes {
+    type: number
     sql: ${TABLE}.CF_RESPONSE_BYTES ;;
   }
 
