@@ -22,7 +22,19 @@ measure: response_bytes {
   drill_fields: [cf_brand, cf_client_ip, cf_protocol, cf_purchase, cf_ray_id, cf_request_host, cf_referer, cf_response_status, cf_uri, cf_user_agent]
 }
 
+  dimension: device_type_from_user_agent {
+    type: string
+    sql: case when ${TABLE}.SG_CONTEXT_USER_AGENT like '%iPhone%' then 'iphone'
+    when ${TABLE}.CF_USER_AGENT like '%Macintosh%' then 'Apple Desktop'
+    when ${TABLE}.CF_USER_AGENT like '%iPad%' then 'iPad'
+    when ${TABLE}.CF_USER_AGENT like '%Android%' then 'Android'
+    when ${TABLE}.CF_USER_AGENT like '%Windows NT%' then 'Windows Desktop'
+    when ${TABLE}.CF_USER_AGENT like '%X11%' then 'Linux Desktop' else '' end;;
+    drill_fields: [cf_brand, cf_client_ip, cf_protocol, cf_purchase, cf_ray_id, cf_request_host, cf_referer, cf_response_status, cf_uri, cf_user_agent]
+    }
 #########################################################
+
+
   dimension: cf_brand {
     type: string
     sql: ${TABLE}.CF_BRAND ;;
