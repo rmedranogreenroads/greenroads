@@ -55,20 +55,20 @@ view: agg_paid_media {
   measure: total_clicks {
     type: sum
     sql: ${pm_clicks} ;;
-    drill_fields: [pm_brand,pm_campaign,pm_cost,pm_date, pm_vendor, total_clicks]
+    drill_fields: [pm_brand,pm_campaign,pm_cost,pm_date, pm_vendor, total_clicks, avg_conversion_rate, avg_cost_per_click]
   }
 
   measure: total_cost {
     type: sum
     sql: ${pm_cost} ;;
-    drill_fields: [pm_brand,pm_campaign,pm_cost,pm_date, pm_vendor, total_clicks]
+    drill_fields: [pm_brand,pm_campaign,pm_cost,pm_date, pm_vendor, total_clicks, avg_conversion_rate, avg_cost_per_click]
     value_format_name: usd
   }
 
   measure: total_conversions {
     type: sum
     sql: ${pm_conversions} ;;
-    drill_fields: [pm_brand,pm_campaign,pm_cost,pm_date, pm_vendor, total_clicks]
+    drill_fields: [pm_brand,pm_campaign,pm_cost,pm_date, pm_vendor, total_clicks, avg_conversion_rate, avg_cost_per_click]
   }
 
   measure: avg_cost_per_click {
