@@ -24,7 +24,7 @@ measure: response_bytes {
 
   dimension: device_type_from_user_agent {
     type: string
-    sql: case when ${TABLE}.SG_CONTEXT_USER_AGENT like '%iPhone%' then 'iphone'
+    sql: case when ${TABLE}.CF_USER_AGENT like '%iPhone%' then 'iphone'
     when ${TABLE}.CF_USER_AGENT like '%Macintosh%' then 'Apple Desktop'
     when ${TABLE}.CF_USER_AGENT like '%iPad%' then 'iPad'
     when ${TABLE}.CF_USER_AGENT like '%Android%' then 'Android'
