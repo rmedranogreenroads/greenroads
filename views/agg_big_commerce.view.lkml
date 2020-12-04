@@ -6,25 +6,25 @@ view: agg_big_commerce {
   measure: transaction_total{
     type: sum
     sql: ${bc_total_including_tax} ;;
-    drill_fields: [bc_source, bc_status, bc_total_items, bc_items_shipped, bc_coupon_discount, bc_coupon_id, bc_brand]
+    drill_fields: [bc_source, bc_status, bc_total_items, bc_items_shipped, bc_coupon_discount, bc_coupon_id, bc_brand, bc_status]
   }
 
   measure: total_items {
     type: sum
     sql: ${bc_total_items} ;;
-    drill_fields: [bc_source, bc_status, bc_total_items, bc_items_shipped, bc_coupon_discount, bc_coupon_id, bc_brand]
+    drill_fields: [bc_source, bc_status, bc_total_items, bc_items_shipped, bc_coupon_discount, bc_coupon_id, bc_brand, bc_status]
   }
 
 measure: total_items_shipped {
   type: sum
   sql: ${bc_items_shipped};;
-  drill_fields: [bc_source, bc_status, bc_total_items, bc_items_shipped, bc_coupon_discount, bc_coupon_id, bc_brand]
+  drill_fields: [bc_source, bc_status, bc_total_items, bc_items_shipped, bc_coupon_discount, bc_coupon_id, bc_brand, bc_status]
   }
 
 measure: count_distinct_tranasctions {
   type: count_distinct
   sql: ${bc_order_id} ;;
-  drill_fields: [bc_source, bc_status, bc_total_items, bc_items_shipped, bc_coupon_discount, bc_coupon_id, bc_brand]
+  drill_fields: [bc_source, bc_status, bc_total_items, bc_items_shipped, bc_coupon_discount, bc_coupon_id, bc_brand, bc_status]
 }
 
 ##################################
