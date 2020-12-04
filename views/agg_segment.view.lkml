@@ -32,7 +32,7 @@ dimension: coupon_standardized {
   sql: case when ${TABLE}.SG_COUPON like '%give30%' then 'GIVE30'
         when ${TABLE}.SG_COUPON like '%Give30%' then 'GIVE30'
         when ${TABLE}.SG_COUPON like '%mil%' then 'Military'
-        when ${TABLE}.SG_COUPON like '%mil%' then 'Military'
+        when ${TABLE}.SG_COUPON like '%Mil%' then 'Military'
       else ${TABLE}.SG_COUPON end   ;;
 }
 
