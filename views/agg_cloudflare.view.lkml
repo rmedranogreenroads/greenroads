@@ -2,6 +2,17 @@ view: agg_cloudflare {
   sql_table_name: `green-roads-285616.reporting_prod.agg_cloudflare`
     ;;
 
+
+
+###########Logical Reconstructions#######################
+measure: cf_transactions_distinct {
+  type: count_distinct
+  sql: case when ${TABLE}.CF_PURCHASE like 'true' then ${TABLE}.CF_URI end  ;;
+}
+
+
+
+#########################################################
   dimension: cf_brand {
     type: string
     sql: ${TABLE}.CF_BRAND ;;
