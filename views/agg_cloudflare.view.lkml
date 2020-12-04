@@ -10,7 +10,10 @@ measure: cf_transactions_distinct {
   sql: case when ${TABLE}.CF_PURCHASE like 'true' then ${TABLE}.CF_URI end  ;;
 }
 
-
+dimension: cf_transaction_id {
+  type: string
+  sql: select right (${TABLE}.CF_URI, charindex('=', reverse(${TABLE}.CF_URI))-1) end  ;;
+}
 
 #########################################################
   dimension: cf_brand {
