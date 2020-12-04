@@ -8,14 +8,14 @@ view: agg_segment {
 measure: transactions {
   type: count_distinct
   sql: case when  ${TABLE}.SG_EVENT like 'checkout_step_completed' then ${TABLE}.SG_CHECKOUT_ID end ;;
-  drill_fields: [sg_campaign_medium,sg_campaign_source,sg_context_page_referrer, sg_user_id, sg_affiliation, sg_page_title, sg_page_path, sg_context_page_search, sg_products, sg_page_search]
+  drill_fields: [sg_campaign_medium, sg_campaign_source, sg_context_page_referrer, sg_user_id, sg_affiliation, sg_page_title, sg_page_path, sg_context_page_search, sg_products, sg_page_search]
 }
 
 
 dimension: brand {
   type: string
   sql: case when ${TABLE}.SG_CONTEXT_PAGE_REFERRER like '%greenroads-hemp%' then 'hemp' else 'cbd' end   ;;
-  drill_fields: [sg_campaign_medium,sg_campaign_source,sg_context_page_referrer, sg_user_id, sg_affiliation, sg_page_title, sg_page_path, sg_context_page_search, sg_products, sg_page_search]
+  drill_fields: [sg_campaign_medium, sg_campaign_source, sg_context_page_referrer, sg_user_id, sg_affiliation, sg_page_title, sg_page_path, sg_context_page_search, sg_products, sg_page_search]
 }
 
 dimension: device_type_from_user_agent {
@@ -26,7 +26,7 @@ dimension: device_type_from_user_agent {
             when ${TABLE}.SG_CONTEXT_USER_AGENT like '%Android%' then 'Android'
             when ${TABLE}.SG_CONTEXT_USER_AGENT like '%Windows NT%' then 'Windows Desktop'
             when ${TABLE}.SG_CONTEXT_USER_AGENT like '%X11%' then 'Linux Desktop' else '' end  ;;
-  drill_fields: [sg_campaign_medium,sg_campaign_source,sg_context_page_referrer, sg_user_id, sg_affiliation, sg_page_title, sg_page_path, sg_context_page_search, sg_products, sg_page_search]
+  drill_fields: [sg_campaign_medium, sg_campaign_source, sg_context_page_referrer, sg_user_id, sg_affiliation, sg_page_title, sg_page_path, sg_context_page_search, sg_products, sg_page_search]
 }
 
 dimension: coupon_standardized {
@@ -38,7 +38,7 @@ dimension: coupon_standardized {
         when ${TABLE}.SG_COUPON like '%Mil%' then 'Military'
         when ${TABLE}.SG_COUPON like '%MIl%' then 'Military'
       else ${TABLE}.SG_COUPON end   ;;
-      drill_fields: [sg_campaign_medium,sg_campaign_source,sg_context_page_referrer, sg_user_id, sg_affiliation, sg_page_title, sg_page_path, sg_context_page_search, sg_products, sg_page_search]
+      drill_fields: [sg_campaign_medium, sg_campaign_source, sg_context_page_referrer, sg_user_id, sg_affiliation, sg_page_title, sg_page_path, sg_context_page_search, sg_products, sg_page_search]
 }
 
 ##################################
