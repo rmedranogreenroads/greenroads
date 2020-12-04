@@ -32,8 +32,10 @@ dimension: coupon_standardized {
   type: string
   sql: case when ${TABLE}.SG_COUPON like '%give30%' then 'GIVE30'
         when ${TABLE}.SG_COUPON like '%Give30%' then 'GIVE30'
+        when ${TABLE}.SG_COUPON like '%gIve30%' then 'GIVE30'
         when ${TABLE}.SG_COUPON like '%mil%' then 'Military'
         when ${TABLE}.SG_COUPON like '%Mil%' then 'Military'
+        when ${TABLE}.SG_COUPON like '%MIl%' then 'Military'
       else ${TABLE}.SG_COUPON end   ;;
       drill_fields: [sg_campaign_medium,sg_campaign_source,sg_context_page_referrer, sg_user_id, sg_affiliation, sg_page_title, sg_page_path, sg_context_page_search]
 }
