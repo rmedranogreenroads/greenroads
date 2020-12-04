@@ -32,7 +32,7 @@ explore: agg_cloudflare {
   label: "CloudFlare v2"
 }
 
-explore:agg_segment  {
+explore:agg_segment_complete  {
   label: "Segment v2"
 }
 
