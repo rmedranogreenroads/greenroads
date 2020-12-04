@@ -55,7 +55,7 @@ view: agg_segment_complete {
   }
 
   dimension: sg_checkout_id {
-    type: number
+    type: string
     sql: ${TABLE}.SG_CHECKOUT_ID ;;
   }
 
