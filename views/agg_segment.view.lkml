@@ -26,6 +26,13 @@ dimension: device_type_from_user_agent {
             when ${TABLE}.SG_CONTEXT_USER_AGENT like '%Windows NT%' then 'Windows Desktop'
             when ${TABLE}.SG_CONTEXT_USER_AGENT like '%X11%' then 'Linux Desktop' else '' end  ;;
 }
+
+dimension: coupon_standardized {
+  type: string
+  sql: case when ${TABLE}.SG_COUPON like 'give30' then 'GIVE30'
+       case when ${TABLE}.SG_COUPON like 'Give30' then 'GIVE30' else ${TABLE}.SG_COUPON end   ;;
+}
+
 ##################################
   dimension: sg_affiliation {
     type: string
