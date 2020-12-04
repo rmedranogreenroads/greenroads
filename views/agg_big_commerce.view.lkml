@@ -21,6 +21,12 @@ measure: total_items_shipped {
   drill_fields: [bc_source, bc_status, bc_total_items, bc_items_shipped, bc_coupon_discount, bc_coupon_id, bc_brand]
   }
 
+measure: count_distinct_tranasctions {
+  type: count_distinct
+  sql: ${bc_order_id} ;;
+  drill_fields: [bc_source, bc_status, bc_total_items, bc_items_shipped, bc_coupon_discount, bc_coupon_id, bc_brand]
+}
+
 ##################################
   dimension: bc_brand {
     type: string
