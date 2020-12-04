@@ -15,6 +15,12 @@ view: agg_big_commerce {
     drill_fields: [bc_source, bc_status, bc_total_items, bc_items_shipped, bc_coupon_discount, bc_coupon_id, bc_brand]
   }
 
+measure: total_items_shipped {
+  type: sum
+  sql: ${bc_items_shipped};;
+  drill_fields: [bc_source, bc_status, bc_total_items, bc_items_shipped, bc_coupon_discount, bc_coupon_id, bc_brand]
+  }
+
 ##################################
   dimension: bc_brand {
     type: string
