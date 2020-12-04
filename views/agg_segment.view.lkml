@@ -25,7 +25,7 @@ dimension: device_type_from_user_agent {
             when ${TABLE}.SG_CONTEXT_USER_AGENT like '%Android%' then 'Android'
             when ${TABLE}.SG_CONTEXT_USER_AGENT like '%Windows NT%' then 'Windows Desktop'
             when ${TABLE}.SG_CONTEXT_USER_AGENT like '%X11%' then 'Linux Desktop' else '' end  ;;
-  drill_fields: [sg_campaign_medium, sg_campaign_name, sg_products, sg_context_page_referrer, sg_checkout_id]
+  drill_fields: [sg_campaign_medium,sg_campaign_source,sg_context_page_referrer, sg_user_id, sg_affiliation, sg_page_title, sg_page_path, sg_context_page_search]
 }
 
 dimension: coupon_standardized {
@@ -35,7 +35,7 @@ dimension: coupon_standardized {
         when ${TABLE}.SG_COUPON like '%mil%' then 'Military'
         when ${TABLE}.SG_COUPON like '%Mil%' then 'Military'
       else ${TABLE}.SG_COUPON end   ;;
-      drill_fields: [sg_campaign_medium, sg_campaign_name, sg_products, sg_context_page_referrer, sg_checkout_id]
+      drill_fields: [sg_campaign_medium,sg_campaign_source,sg_context_page_referrer, sg_user_id, sg_affiliation, sg_page_title, sg_page_path, sg_context_page_search]
 }
 
 ##################################
