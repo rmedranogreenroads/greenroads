@@ -14,7 +14,7 @@ measure: transactions {
 
 dimension: brand {
   type: string
-  sql: case when ${TABLE}.SG_CONTEXT_PAGE_REFERRER like 'greenroads-hemp.com' then 'hemp' else 'cbd' end   ;;
+  sql: case when ${TABLE}.SG_CONTEXT_PAGE_REFERRER like 'greenroads-hemp' then 'hemp' else 'cbd' end   ;;
 }
 ##################################
   dimension: sg_affiliation {
