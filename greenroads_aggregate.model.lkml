@@ -32,10 +32,18 @@ explore: agg_cloudflare {
   label: "CloudFlare v2"
 }
 
-explore:agg_segment_complete  {
-  label: "Segment v2"
-}
+explore:agg_segment_complete  {label: "Segment v2"
+  join: agg_segment_product_added {
+    type: left_outer
+    relationship: many_to_one
+    sql_on: ${agg_segment_complete.sg_user_id} = ${agg_segment_product_added.sg_product_user_id} ;;
+  }
+  }
 
 explore: agg_paid_media {
   label: "Paid Media v2"
+}
+
+explore: agg_segment_product_added{
+  label: "Segment v2 Product Added"
 }
