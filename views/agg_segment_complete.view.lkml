@@ -150,6 +150,8 @@ view: agg_segment_complete {
       quarter,
       year
     ]
+    convert_tz: no
+    datatype: date
     sql: ${TABLE}.SG_OG_TIMESTAMP ;;
   }
 
@@ -204,6 +206,8 @@ view: agg_segment_complete {
       quarter,
       year
     ]
+    convert_tz: no
+    datatype: date
     sql: ${TABLE}.SG_PRODUCT_ADDED_TIMESTAMP ;;
   }
 
@@ -253,6 +257,8 @@ view: agg_segment_complete {
       quarter,
       year
     ]
+    convert_tz: no
+    datatype: date
     sql: ${TABLE}.SG_UUID_TS ;;
   }
 
