@@ -14,17 +14,17 @@ measure: transactions {
 
 dimension: brand {
   type: string
-  sql: case when ${TABLE}.SG_CONTEXT_PAGE_REFERRER like 'greenroads-hemp' then 'hemp' else 'cbd' end   ;;
+  sql: case when ${TABLE}.SG_CONTEXT_PAGE_REFERRER like '%greenroads-hemp%' then 'hemp' else 'cbd' end   ;;
 }
 
 dimension: device_type_from_user_agent {
   type: string
-  sql: case when ${TABLE}.SG_CONTEXT_USER_AGENT like 'IPhone' then 'Iphone'
-            when ${TABLE}.SG_CONTEXT_USER_AGENT like 'Macintosh' then 'Apple Desktop'
-            when ${TABLE}.SG_CONTEXT_USER_AGENT like 'Ipad' then 'Ipad'
-            when ${TABLE}.SG_CONTEXT_USER_AGENT like 'Android' then 'Android'
-            when ${TABLE}.SG_CONTEXT_USER_AGENT like 'Windows NT' then 'Windows Desktop'
-            when ${TABLE}.SG_CONTEXT_USER_AGENT like 'X11' then 'Linux Desktop' else '' end  ;;
+  sql: case when ${TABLE}.SG_CONTEXT_USER_AGENT like '%IPhone%' then 'Iphone'
+            when ${TABLE}.SG_CONTEXT_USER_AGENT like '%Macintosh%' then 'Apple Desktop'
+            when ${TABLE}.SG_CONTEXT_USER_AGENT like '%Ipad%' then 'Ipad'
+            when ${TABLE}.SG_CONTEXT_USER_AGENT like '%Android%' then 'Android'
+            when ${TABLE}.SG_CONTEXT_USER_AGENT like '%Windows NT%' then 'Windows Desktop'
+            when ${TABLE}.SG_CONTEXT_USER_AGENT like '%X11%' then 'Linux Desktop' else '' end  ;;
 }
 ##################################
   dimension: sg_affiliation {
