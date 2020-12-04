@@ -81,6 +81,6 @@ view: agg_paid_media {
 measure: avg_conversion_rate{
   type: number
   sql:  1.0 * ( ${total_conversions} / nullif (${total_clicks},0)) ;;
-  value_format_name: usd
+  value_format_name: percent_1
 }
 }
