@@ -71,9 +71,16 @@ view: agg_paid_media {
     drill_fields: [pm_brand,pm_campaign,pm_cost,pm_date, pm_vendor, total_clicks]
   }
 
-  measure: total_cost_per_click {
+  measure: avg_cost_per_click {
     type: number
     sql:  1.0 * (${total_cost} / nullif (${total_clicks},0)) ;;
     value_format_name: usd
   }
+
+
+measure: avg_conversion_rate{
+  type: number
+  sql:  1.0 * ( ${total_conversions} / nullif (${total_clicks},0)) ;;
+  value_format_name: usd
+}
 }
