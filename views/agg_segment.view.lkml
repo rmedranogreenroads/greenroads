@@ -29,8 +29,11 @@ dimension: device_type_from_user_agent {
 
 dimension: coupon_standardized {
   type: string
-  sql: case when ${TABLE}.SG_COUPON like 'give30' then 'GIVE30'
-       case when ${TABLE}.SG_COUPON like 'Give30' then 'GIVE30' else ${TABLE}.SG_COUPON end   ;;
+  sql: case when ${TABLE}.SG_COUPON like '%give30%' then 'GIVE30'
+       case when ${TABLE}.SG_COUPON like '%Give30%' then 'GIVE30'
+       case when ${TABLE}.SG_COUPON like '%mil%' then 'Military'
+       case when ${TABLE}.SG_COUPON like '%mil%' then 'Military'
+      else ${TABLE}.SG_COUPON end   ;;
 }
 
 ##################################
